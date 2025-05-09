@@ -3,8 +3,13 @@ from utils.geo_locations import region_coords
 import os
 from datetime import datetime
 import time
+from dotenv import load_dotenv
 
-API_KEY = "e7e1c8e12e1013f9e90c1cfdc90e5f97"  # Clé API directe pour le test
+# Charger les variables d'environnement
+load_dotenv()
+
+# Récupérer la clé API depuis les variables d'environnement
+API_KEY = os.getenv('OPENWEATHER_API_KEY')
 
 def get_weather_data(lat, lon):
     url = f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=metric&appid={API_KEY}"
